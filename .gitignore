@@ -50,3 +50,17 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+
+*.o
+*.d
+*.elf
+*.hex
+*.eep
+*.sym
+*.bin
+*.lss
+*.map
+*.bak
+*.class
+Documentation/
+node_modules/
