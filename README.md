@@ -24,7 +24,7 @@ NOTE you need a separate programmer (for example USBtinyISP).
 If you use Arduino module with a bootloader, you may be able to upload the firmware once.
 Then the firmware will change USB Vendor and Product Ids and you won't be able to program second time.
 
-image::images/i2c-mega-usb_bb.png["STM32F103C8T6 microcontroller development board"]
+![Arduino Leonardo wiring](images/i2c-mega-usb_bb.png)
 
 
 ## Install
