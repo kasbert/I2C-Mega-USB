@@ -1,4 +1,4 @@
-# I2C-Mega-USB ATMega32u4 clone of the i2c-tiny-usb
+# I2C-Mega-USB ATmega32u4 clone of the i2c-tiny-usb
 ## Cheap and simple I²C to USB interface
 
 Attach any I2C clients (Wii Nunchuk, thermo sensor, AD converter, display, relay driver, ...) to your PC via USB ... quick, easy and cheap! Drivers for Linux, Windows and MacOS available.
@@ -7,16 +7,16 @@ The i2c-tiny-usb project is an open source/open hardware project. The goal of i2
 
 I2C-Mega-USB is a compatible clone of Till Harbaum’s i2c-tiny-usb. The firmware has no software in common with Till’s implementation but is compatible with the i2c-tiny-usb driver found in the mainline Linux kernel. As a result it will work out of the box without requiring any special software on the host computer. (Even these texts are shamelessly ripped from i2c-tiny-usb and i2c-star, which is a similar project for STM32)
 
-I2C-Mega-USB utilizes ATMega32u4 with hardware I2C and USB, which should be better than the original bitbang I2C and software USB.
+I2C-Mega-USB utilizes ATmega32u4 with hardware I2C and USB, which should be better than the original bitbang I2C and software USB.
 
 ## Hardware setup
 
-The firmware can be easily ported but has been tested on an ATMega32u4 based breakout board (Arduino Leonardo).
+The firmware can be easily ported but has been tested on an ATmega32u4 based breakout board (Arduino Leonardo).
 See LUFA documentatation for possible supported boards.
 Connections required are:
 
 - USB to host computer
-- I2C bus SDA and I2C bus SCL. Add pull up resistors, if needed (for example 2.2kohm resistors to +3.3V). ATMega has internal pullups, but they are often considered too weak.
+- I2C bus SDA and I2C bus SCL. Add pull up resistors, if needed (for example 2.2kohm resistors to +3.3V). ATmega has internal pullups, but they are often considered too weak.
 - ICSP connector for uploading the firmware
 - [Optional; debug only] TX1: UART TX and RX0: UART RX
 

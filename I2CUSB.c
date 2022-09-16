@@ -184,7 +184,7 @@ void SetupHardware(void)
 #endif
 
 	Serial_Init(115200, false);
-	Serial_SendString("I2C-ATMega-USB version 0.1\r\n");
+	Serial_SendString("I2C-ATmega-USB version 0.1\r\n");
 
     static FILE uart_str;
 	Serial_CreateStream(&uart_str);

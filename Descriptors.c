@@ -126,7 +126,7 @@ const USB_Descriptor_String_t PROGMEM I2CUSB_ManufacturerString = USB_STRING_DES
  *  and is read out upon request by the host when the appropriate string ID is requested, listed in the Device
  *  Descriptor.
  */
-const USB_Descriptor_String_t PROGMEM I2CUSB_ProductString = USB_STRING_DESCRIPTOR(L"I2C-ATMega-USB");
+const USB_Descriptor_String_t PROGMEM I2CUSB_ProductString = USB_STRING_DESCRIPTOR(L"I2C-ATmega-USB");
 
 /** Serial number string. This is a Unicode string containing the device's unique serial number, expressed as a
  *  series of uppercase hexadecimal digits.
