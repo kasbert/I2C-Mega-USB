@@ -31,13 +31,21 @@ Then the firmware will change USB Vendor and Product Ids and you won't be able t
 
 - Install avr-gcc compiler toolchain and avrdude. If you have used Arduino IDE, you may have it already (add arduino-x.x.x/hardware/tools/avr/bin/ to PATH).
 - Clone this repo:
-  +git clone https://github.com/kasbert/I2C-Mega-USB+
+```
+git clone https://github.com/kasbert/I2C-Mega-USB
+```
 - Fetch the libraries:
-  +cd I2C-Mega-USB; git submodule update --init --recursive+
+```
+cd I2C-Mega-USB; git submodule update --init --recursive
+```
 - Build the firmware:
-- +make+
+```
+make
+```
 - Use programmer to install the firmware.
-  +make avrdude
+```
+make avrdude
+```
 
 ## Examples
 
