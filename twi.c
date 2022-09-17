@@ -88,8 +88,6 @@ void twi_init(void)
   // activate internal pullups for twi.
   //digitalWrite(SDA, 1);
   //digitalWrite(SCL, 1);
-	DDRD &= ~(3);
-	PORTD |= (3);
 
   // initialize twi prescaler and bit rate
   cbi(TWSR, TWPS0);

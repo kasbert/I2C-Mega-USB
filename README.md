@@ -16,15 +16,23 @@ See LUFA documentatation for possible supported boards.
 Connections required are:
 
 - USB to host computer
-- I2C bus SDA and I2C bus SCL. Add pull up resistors, if needed (for example 2.2kohm resistors to +3.3V). ATmega has internal pullups, but they are often considered too weak.
-- ICSP connector for uploading the firmware
-- [Optional; debug only] TX1: UART TX and RX0: UART RX
+- I2C bus SDA and I2C bus SCL. Add pull up resistors, if needed (for example 2.2kohm resistors to +Vcc). ATmega has internal pull-ups, but they are often considered too weak.
+- [Optional: AVR programmer connected via ICSP connector for uploading the firmware
+- [Optional: debug only] TX1: UART TX and RX0: UART RX
 
-NOTE you need a separate programmer (for example USBtinyISP).
-If you use Arduino module with a bootloader, you may be able to upload the firmware once.
-Then the firmware will change USB Vendor and Product Ids and you won't be able to program second time.
+If you use Arduino module with a bootloader, you can upload the firmware once without problems.
+After the board boots, the USB Vendor and Product Ids have changed and the serial interface has disappeared.
+To program the board second time, push the reset button (connect RST to GND) and quickly use avrdude to program the board.
+Another option is to use a separate programmer (for example USBtinyISP).
+
+ATmega32U4 is often run with 5V voltage, so make sure that your devices can handle it.
+However if your board provides 3.3V, you may use the pull-up resistors to get 3.3V for SDA and SCL pins, too.
+I am not an electrical engineer, so I cannot say if this won't damage your board. Works for me, though.
 
 ![Arduino Leonardo wiring](images/i2c-mega-usb_bb.png)
+
+Here's a "BS Micro ATMEGA32U4" board with pull-up resistors and a connected Wii Nunchuk)
+![BS Micro ATMEGA32U4](images/bsmicro-wii.jpg)
 
 
 ## Install
@@ -49,8 +57,8 @@ make avrdude
 
 ## Examples
 
-Note that the +i2c_dev+ kernel module needs to be loaded before using any of the
-+i2c-tools+ utilities.
+Note that the ```i2c_dev``` kernel module needs to be loaded before using any of the
+```i2c-tools``` utilities.
 
 Linux users may find useful to allow normal user to access the i2c device.
 
@@ -76,10 +84,10 @@ To make Linux aware of I2C devices on the bus, use the following command:
     $ cat /sys/class/i2c-adapter/i2c-9/9-0077/temp0_input
     # BMP085 requires a driver (https://github.com/bsapundzhiev/bmp085)
 
-Where +tmp102+ is the name of the kernel driver you want to associate with the
-I2C device, +0x77+ is the I2C device's 7-bit address, and +i2c-9+ is the bus
-number the kernel assigned to the i2c-star adapter (appears as +i2c-tiny-usb+
-in +dmesg+ and +i2cdetect+).
+Where ```bmp085``` is the name of the kernel driver you want to associate with the
+I2C device, ```0x77``` is the I2C device's 7-bit address, and ```i2c-9``` is the bus
+number the kernel assigned to the i2c-star adapter (appears as ```i2c-tiny-usb```
+in ```dmesg``` and ```i2cdetect```).
 
 
 ## Credits

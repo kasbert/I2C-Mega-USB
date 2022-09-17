@@ -195,6 +195,11 @@ void SetupHardware(void)
 	twi_init();
 	twi_setTimeoutInMicros(TWI_TIMEOUT, 1);
 
+#ifdef USE_INTERNAL_PULL_UPS
+	DDRD &= ~(3);
+	PORTD |= (3);
+#endif
+
 	GlobalInterruptEnable();
 
 #ifdef DEBUG
