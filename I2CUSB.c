@@ -142,10 +142,18 @@ const uint32_t func = I2C_FUNC_I2C | I2C_FUNC_SMBUS_EMUL;
 
 static unsigned char status = STATUS_IDLE;
 
+#ifdef ARDUINO_LEONARDO
 #define LED_SETUP() DDRC |= (1<<7)
 #define L_LED_OFF() PORTC &= ~(1<<7)
 #define L_LED_ON() PORTC |= (1<<7)
 #define L_LED_TOGGLE() PORTC ^= (1<<7)
+#else
+// Pro micro RX led reversed
+#define LED_SETUP() DDRB |= (1<<0)
+#define L_LED_OFF() PORTB |= (1<<0)
+#define L_LED_ON() PORTB &= ~(1<<0)
+#define L_LED_TOGGLE() PORTB ^= (1<<0)
+#endif
 
 #ifdef DEBUG
 #define DEBUGC Serial_SendByte
